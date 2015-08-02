@@ -17,9 +17,10 @@
     "react": "~0.13.3",
     "react-logo": "~1.0.7",
     "forkmeon.github.io": "*",
-    "faker": "~3.0.1",
-    "brace": "0.5.1",
-    "react-ace": "2.0.1"
+    "faker-zh-cn": "0.5.8",
+    "react-codemirror": "0.1.2",
+    "marked": "0.3.2",
+    "highlight.js": "~8.3.0"
   },
   "pre-commit": [
     "lint"

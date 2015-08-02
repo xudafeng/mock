@@ -29,10 +29,10 @@ var config = {
     loaders: [
       {
         test: /\.js$/,
-        loader: 'jsx-loader?harmony'
+        loader: 'babel-loader'
       },
       {
-        test: /\.js$/,
+        test: /\.jsx$/,
         loader: 'babel-loader'
       },
       {
