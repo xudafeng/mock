@@ -11,6 +11,12 @@
 <base target="_blank"/>
 </head>
 <body>
-<script src="https://rawgit.com/xudafeng/mock/gh-pages/assets/index.js"></script>
+<script>
+var head = document.head || document.getElementsByTagName('head')[0] || document.documentElement;
+var node = document.createElement('script');
+node.src = !!~location.host.indexOf('github') ? location.protocol + '//xudafeng.oss-cn-hangzhou.aliyuncs.com/mock/index.js' : 'assets/index.js';
+node.async = true;
+head.insertBefore(node, head.firstChild);
+</script>
 </body>
 </html>
