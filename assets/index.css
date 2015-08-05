@@ -24,10 +24,6 @@ html, body {
   padding-top: 30px;
   color: #444;
 }
-.editor-nav {
-  height: 50px;
-  background: #27B8E7;
-}
 .show-helper .template,
 .show-helper .output,
 .show-helper .helper {
@@ -50,6 +46,10 @@ html, body {
   overflow: hidden;
   -webkit-transition: width .8s ease;
   transition: width .8s ease;
+}
+.editor-nav {
+  height: 50px;
+  background: rgb(64, 14, 14);
 }
 .editor-nav ul {
   padding-left: 0;
@@ -117,6 +117,4 @@ html, body {
 .markdown {
   margin: 0 10px;
   font-family: Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
-}
-.markdown h1 {
 }

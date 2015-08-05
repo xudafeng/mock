@@ -146,6 +146,7 @@ class EditorComponent extends React.Component {
       value: this.getOutPutCode(),
       options: {
         readOnly: true,
+        showCursorWhenSelecting: false,
         lineNumbers: true,
         styleActiveLine: true,
         indentWithTabs: true,
@@ -153,15 +154,15 @@ class EditorComponent extends React.Component {
         smartIndent: true,
         textWrapping: false,
         lineWrapping: true,
-        autofocus: true,
-        mode: 'text/x-sql'
+        mode: 'text/x-sql',
+        cursorHeight: 0
       }
     };
   }
 
   getCommonStyle() {
     return {
-      height: this.state.containerHeight
+      height: this.state.containerHeight - 50
     };
   }
 
@@ -203,13 +204,13 @@ class EditorComponent extends React.Component {
             </li>
           </ul>
         </nav>
-        <div className={`template`} style={this.getCommonStyle()} ref="template">
+        <div className="template" style={this.getCommonStyle()} ref="template">
           <Codemirror {...this.getTemplateEditorProps()}/>
         </div>
-        <div className={`output`} style={this.getCommonStyle()} ref="output">
+        <div className="output" style={this.getCommonStyle()} ref="output">
           <Codemirror {...this.getOutputEditorProps()} />
         </div>
-        <div className={`helper`} style={this.getCommonStyle()} ref="helper">
+        <div className="helper" style={this.getCommonStyle()} ref="helper">
           <MarkdownComponent>
           {this.state.helperContent}
           </MarkdownComponent>

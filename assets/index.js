@@ -18735,7 +18735,7 @@
 
 	module.exports = {
 		"name": "mock",
-		"version": "1.0.1",
+		"version": "1.0.2",
 		"description": "Data Faker",
 		"keywords": [
 			"mock"
@@ -18955,6 +18955,7 @@
 	        value: this.getOutPutCode(),
 	        options: {
 	          readOnly: true,
+	          showCursorWhenSelecting: false,
 	          lineNumbers: true,
 	          styleActiveLine: true,
 	          indentWithTabs: true,
@@ -18962,8 +18963,8 @@
 	          smartIndent: true,
 	          textWrapping: false,
 	          lineWrapping: true,
-	          autofocus: true,
-	          mode: 'text/x-sql'
+	          mode: 'text/x-sql',
+	          cursorHeight: 0
 	        }
 	      };
 	    }
@@ -18971,7 +18972,7 @@
 	    key: 'getCommonStyle',
 	    value: function getCommonStyle() {
 	      return {
-	        height: this.state.containerHeight
+	        height: this.state.containerHeight - 50
 	      };
 	    }
 	  }, {
