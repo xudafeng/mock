@@ -67,7 +67,7 @@ let fakerEval = function(code) {
   }, 'this.Faker.' + code);
 };
 
-const sampleCode = '\n/* click helper for more help */\n\nselect * from table where id \= \'dafeng\'\;\n';
+const sampleCode = '\nINSERT INTO Persons (LastName, Phone) VALUES ("{random.array_element([\'dafeng\', \'xdf\'])}", "{random.numberString(13)}")\;\n';
 
 window.Faker = Faker;
 
@@ -219,8 +219,5 @@ class EditorComponent extends React.Component {
     );
   }
 }
-
-EditorComponent.defaultProps = {
-};
 
 module.exports = EditorComponent;

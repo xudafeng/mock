@@ -18864,7 +18864,7 @@
 	  }, 'this.Faker.' + code);
 	};
 
-	var sampleCode = '\n/* click helper for more help */\n\nselect * from table where id \= \'dafeng\'\;\n';
+	var sampleCode = '\nINSERT INTO Persons (LastName, Phone) VALUES ("{random.array_element([\'dafeng\', \'xdf\'])}", "{random.numberString(13)}")\;\n';
 
 	window.Faker = Faker;
 
@@ -19068,8 +19068,6 @@
 
 	  return EditorComponent;
 	})(React.Component);
-
-	EditorComponent.defaultProps = {};
 
 	module.exports = EditorComponent;
 
