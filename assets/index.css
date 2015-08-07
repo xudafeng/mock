@@ -127,4 +127,5 @@ html, body {
 li select {
   float: left;
   margin-top: 15px;
+  color: #444;
 }

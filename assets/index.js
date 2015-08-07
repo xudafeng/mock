@@ -19006,7 +19006,7 @@
 	    value: function handleTagChange(e) {
 	      var value = e.target.value;
 	      this.setState({
-	        tagType: parseInt(value)
+	        tagType: parseInt(value, 10)
 	      });
 	    }
 	  }, {
