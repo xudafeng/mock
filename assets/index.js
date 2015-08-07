@@ -18817,10 +18817,22 @@
 
 	__webpack_require__(287);
 
+	var sampleCode = '\nINSERT INTO Persons (LastName, Phone) VALUES ("{random.array_element([\'dafeng\', \'xdf\'])}", "{random.numberString(13)}")\;\n';
+	var types = [{
+	  openTag: '{',
+	  closeTag: '}'
+	}, {
+	  openTag: '<#',
+	  closeTag: '#>'
+	}];
+
 	var parse = function parse(template) {
+	  var _this = this;
+
 	  var content = [];
-	  template.split('{').forEach(function (i) {
-	    i = i.split('}');
+
+	  template.split(types[this.state.tagType].openTag).forEach(function (i) {
+	    i = i.split(types[_this.state.tagType].closeTag);
 
 	    var $0 = i[0];
 	    var $1 = i[1];
@@ -18864,8 +18876,6 @@
 	  }, 'this.Faker.' + code);
 	};
 
-	var sampleCode = '\nINSERT INTO Persons (LastName, Phone) VALUES ("{random.array_element([\'dafeng\', \'xdf\'])}", "{random.numberString(13)}")\;\n';
-
 	window.Faker = Faker;
 
 	var EditorComponent = (function (_React$Component) {
@@ -18880,23 +18890,24 @@
 	      code: sampleCode,
 	      containerHeight: document.body.clientHeight,
 	      repeat: 1,
-	      helperContent: ''
+	      helperContent: '',
+	      tagType: 0
 	    };
 	  }
 
 	  _createClass(EditorComponent, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      var _this = this;
+	      var _this2 = this;
 
 	      window.addEventListener('resize', function () {
-	        _this.setState({
+	        _this2.setState({
 	          containerHeight: document.body.clientHeight
 	        });
 	      }, false);
 
 	      Util.ajax('./README.md', function (data) {
-	        _this.setState({
+	        _this2.setState({
 	          helperContent: data
 	        });
 	      });
@@ -18928,7 +18939,7 @@
 	  }, {
 	    key: 'generateFakeData',
 	    value: function generateFakeData(code) {
-	      var template = parse(code);
+	      var template = parse.call(this, code);
 	      var result = compile(template);
 	      return result;
 	    }
@@ -18991,6 +19002,14 @@
 	      });
 	    }
 	  }, {
+	    key: 'handleTagChange',
+	    value: function handleTagChange(e) {
+	      var value = e.target.value;
+	      this.setState({
+	        tagType: parseInt(value)
+	      });
+	    }
+	  }, {
 	    key: 'updateCode',
 	    value: function updateCode(newCode) {
 	      this.setState({
@@ -19030,6 +19049,21 @@
 	                'label',
 	                { className: 'repeat-label' },
 	                React.createElement('input', { type: 'text', value: this.state.repeat, onChange: this.handleInputChange.bind(this) })
+	              )
+	            ),
+	            React.createElement(
+	              'li',
+	              null,
+	              React.createElement(
+	                'div',
+	                { className: 'tags' },
+	                'tags:'
+	              ),
+	              React.createElement(
+	                'select',
+	                { onChange: this.handleTagChange.bind(this) },
+	                React.createElement('option', { value: '0', dangerouslySetInnerHTML: { __html: '{  ... }' } }),
+	                React.createElement('option', { value: '1', dangerouslySetInnerHTML: { __html: '<# ... #>' } })
 	              )
 	            ),
 	            React.createElement(

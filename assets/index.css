@@ -118,3 +118,13 @@ html, body {
   margin: 0 10px;
   font-family: Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
 }
+.tags {
+  height: 100%;
+  line-height: 50px;
+  padding-right: 10px;
+  float: left;
+}
+li select {
+  float: left;
+  margin-top: 15px;
+}

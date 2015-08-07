@@ -20,10 +20,20 @@ let pkg = require('../package.json');
 
 require('codemirror/mode/sql/sql');
 
+const sampleCode = '\nINSERT INTO Persons (LastName, Phone) VALUES ("{random.array_element([\'dafeng\', \'xdf\'])}", "{random.numberString(13)}")\;\n';
+const types = [{
+  openTag: '{',
+  closeTag: '}'
+}, {
+  openTag: '<#',
+  closeTag: '#>'
+}];
+
 let parse = function(template) {
   let content = [];
-  template.split('{').forEach(function(i) {
-    i = i.split('}');
+
+  template.split(types[this.state.tagType].openTag).forEach(i => {
+    i = i.split(types[this.state.tagType].closeTag);
 
     let $0 = i[0];
     let $1 = i[1];
@@ -67,8 +77,6 @@ let fakerEval = function(code) {
   }, 'this.Faker.' + code);
 };
 
-const sampleCode = '\nINSERT INTO Persons (LastName, Phone) VALUES ("{random.array_element([\'dafeng\', \'xdf\'])}", "{random.numberString(13)}")\;\n';
-
 window.Faker = Faker;
 
 class EditorComponent extends React.Component {
@@ -80,7 +88,8 @@ class EditorComponent extends React.Component {
       code: sampleCode,
       containerHeight: document.body.clientHeight,
       repeat: 1,
-      helperContent: ''
+      helperContent: '',
+      tagType: 0
     };
   }
 
@@ -121,7 +130,7 @@ class EditorComponent extends React.Component {
   }
 
   generateFakeData(code) {
-    let template = parse(code);
+    let template = parse.call(this, code);
     let result = compile(template);
     return result;
   }
@@ -179,6 +188,13 @@ class EditorComponent extends React.Component {
     });
   }
 
+  handleTagChange(e) {
+    let value = e.target.value;
+    this.setState({
+      tagType: parseInt(value, 10)
+    });
+  }
+
   updateCode(newCode) {
     this.setState({
       code: newCode
@@ -198,6 +214,13 @@ class EditorComponent extends React.Component {
               <label className="repeat-label">
                 <input type="text" value={this.state.repeat} onChange={this.handleInputChange.bind(this)}/>
               </label>
+            </li>
+            <li>
+              <div className="tags">tags:</div>
+              <select onChange={this.handleTagChange.bind(this)}>
+                <option value="0" dangerouslySetInnerHTML={{__html: '{  ... }'}}></option>
+                <option value="1" dangerouslySetInnerHTML={{__html: '<# ... #>'}}></option>
+              </select>
             </li>
             <li onClick={this.handleHelperClick.bind(this)}>
               <span className="item">helper</span>
