@@ -22,6 +22,30 @@ Data Faker
 {random.numberString(5)}
 ```
 
+#### Other
+
+##### Address
+
+- Address.city()
+- Address.zipCode()
+
+##### Internet
+
+- Internet.email()
+- Internet.ip()
+- Internet.userName()
+
+##### Name
+
+- Name.findName()
+- Name.firstName()
+- Name.lastName()
+
+##### Helper
+
+- Helper.randomize(Array)
+- Helpers.randomNumber(Number)
+
 ## License
 
 MIT Licensed. Copyright (c) [xdf](https://www.github.com/xudafeng) 2015.

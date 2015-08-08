@@ -15,5 +15,5 @@ push:
 lint:
 	@${npm_bin}/eslint src
 server: install
-	@${npm_bin}/startserver
+	@${npm_bin}/startserver -s
 .PHONY: test
