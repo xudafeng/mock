@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<title>Data Faker</title>
+<link rel="shortcut icon" href="assets/image/favicon.ico" type="image/x-icon" />
+<base target="_blank"/>
+</head>
+<body>
+<script>
+(function(assets) {
+  var head = document.head || document.getElementsByTagName('head')[0] || document.documentElement;
+  var aliyun = '//' + location.host.split('.')[0] + '.oss-cn-hangzhou.aliyuncs.com/mock/';
+
+  for (var i = 0; i < assets.length; i++) {
+    var item = assets[i];
+    var isJs = !!~item.lastIndexOf('.js');
+    var node = document.createElement(isJs ? 'script' : 'link');
+
+    if (!isJs) {
+      node.rel = 'stylesheet';
+    }
+    node[isJs ? 'src' : 'href'] = !!~location.host.indexOf('github') ? location.protocol + aliyun + item : 'assets/' + item;
+    node.async = true;
+    head.appendChild(node);
+  }
+})(['bootstrap.min.css', 'codemirror.css', 'index.css', 'index.js']);
+</script>
+</body>
+</html>

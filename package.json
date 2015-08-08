@@ -1,0 +1,47 @@
+{
+  "name": "mock",
+  "version": "1.0.2",
+  "description": "Data Faker",
+  "keywords": [
+    "mock"
+  ],
+  "homepage": "http://xudafeng.github.io/mock",
+  "author": "xudafeng@126.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xudafeng/mock.git"
+  },
+  "scripts": {
+    "lint": "make lint"
+  },
+  "dependencies": {
+    "react": "~0.13.3",
+    "react-logo": "~1.0.7",
+    "forkmeon.github.io": "*",
+    "faker-zh-cn": "0.5.8",
+    "react-codemirror": "0.1.2",
+    "marked": "0.3.2",
+    "highlight.js": "~8.3.0",
+    "codemirror": "5.5.0"
+  },
+  "pre-commit": [
+    "lint"
+  ],
+  "devDependencies": {
+    "eslint-plugin-react": "~2.5.2",
+    "webpack": "~1.9.0",
+    "babel-core": "^5.x",
+    "babel-loader": "^5.x",
+    "jsx-loader": "^0.12.2",
+    "json-loader": "^0.5.2",
+    "startserver": "*",
+    "startserver-webpack": "~1.0.1",
+    "pre-commit": "*"
+  },
+  "startserver": [
+    {
+      "startserver-webpack": "*"
+    }
+  ],
+  "licenses": "MIT"
+}
