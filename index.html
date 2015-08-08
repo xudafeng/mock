@@ -11,7 +11,7 @@
 <script>
 (function(assets) {
   var head = document.head || document.getElementsByTagName('head')[0] || document.documentElement;
-  var aliyun = '//xudafeng.oss-cn-hangzhou.aliyuncs.com/mock/';
+  var aliyun = '//' + location.host.split('.')[0] + '.oss-cn-hangzhou.aliyuncs.com/mock/';
 
   for (var i = 0; i < assets.length; i++) {
     var item = assets[i];
