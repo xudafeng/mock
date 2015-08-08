@@ -20,7 +20,7 @@ let pkg = require('../package.json');
 
 require('codemirror/mode/sql/sql');
 
-const sampleCode = '\nINSERT INTO Persons (LastName, Phone) VALUES ("{random.array_element([\'dafeng\', \'xdf\'])}", "{random.numberString(13)}")\;\n';
+const sampleCode = '\n/* click helper for more help. */\n\nINSERT INTO Persons (LastName, Phone) VALUES ("{random.array_element([\'dafeng\', \'xdf\'])}", "{random.numberString(13)}")\;\n';
 const types = [{
   openTag: '{',
   closeTag: '}'

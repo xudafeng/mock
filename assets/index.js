@@ -18817,7 +18817,7 @@
 
 	__webpack_require__(287);
 
-	var sampleCode = '\nINSERT INTO Persons (LastName, Phone) VALUES ("{random.array_element([\'dafeng\', \'xdf\'])}", "{random.numberString(13)}")\;\n';
+	var sampleCode = '\n/* click helper for more help. */\n\nINSERT INTO Persons (LastName, Phone) VALUES ("{random.array_element([\'dafeng\', \'xdf\'])}", "{random.numberString(13)}")\;\n';
 	var types = [{
 	  openTag: '{',
 	  closeTag: '}'
