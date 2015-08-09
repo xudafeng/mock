@@ -129,3 +129,20 @@ li select {
   margin-top: 15px;
   color: #444;
 }
+@media only screen and (max-width: 500px) {
+  .template,
+  .output,
+  .logo .version,
+  select {
+    display: none;
+  }
+  section,
+  .editor,
+  .editor-nav {
+    height: 100%;
+  }
+  .editor-nav .title {
+    margin-top: 50%;
+    font-size: 50px;
+  }
+}
