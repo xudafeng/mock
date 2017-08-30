@@ -1,5 +1,4 @@
-Data Faker
-==========
+# Data Faker
 
 `generate mock data.`
 

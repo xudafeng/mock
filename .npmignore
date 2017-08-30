@@ -1,0 +1,13 @@
+.travis.yml
+.drone.yml
+test/
+homepage/
+examples/
+docs/
+Makefile
+.jshintrc
+.jshintignore
+coverage/
+*.html
+*.sw*
+*.un~
